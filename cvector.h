@@ -78,12 +78,12 @@
  * @return void
  */
 #define cvector_reserve(vec, capacity)                                         \
-  do {                                                                         \
-    size_t cv_cap = cvector_capacity(vec);                                     \
-    if (cv_cap < (capacity)) {                                                 \
-      cvector_grow((vec), (capacity));                                         \
-    }                                                                          \
-  } while (UNUSED(0), 0)
+  BEGIN_BLOCK                                                                  \
+  size_t cv_cap = cvector_capacity(vec);                                       \
+  if (cv_cap < (capacity)) {                                                   \
+    cvector_grow((vec), (capacity));                                           \
+  }                                                                            \
+  END_BLOCK
 
 /**
  * @brief cvector_erase - removes the element at index i from the vector
