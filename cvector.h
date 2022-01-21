@@ -29,14 +29,19 @@
 #ifndef cvector_clib_malloc
 #define cvector_clib_malloc malloc
 #endif
-#ifndef cvector_clib_calloc
-#define cvector_clib_calloc calloc
-#endif
-
 #ifndef cvector_clib_realloc
 #define cvector_clib_realloc realloc
 #endif
-
+#else
+#ifndef cvector_clib_free
+#error "custom cvector_clib_free aquired but not defined"
+#endif
+#ifndef cvector_clib_malloc
+#error "custom cvector_clib_malloc aquired but not defined"
+#endif
+#ifndef cvector_clib_realloc
+#error "custom cvector_clib_realloc aquired but not defined"
+#endif
 #endif /* #ifndef CVECTOR_CUSTOM_MALLOC */
 
 #ifndef UNUSED
